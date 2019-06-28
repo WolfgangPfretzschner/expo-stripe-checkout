@@ -24,6 +24,7 @@
   "license": "MIT",
   "peerDependencies": {
     "prop-types": "^15.6.0",
-    "react-native": ">= 0.20.0"
+    "react-native": ">= 0.20.0",
+    "react-native-webview": "^5.12.0"
   }
 }

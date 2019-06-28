@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { WebView, Platform, View, ViewPropTypes } from 'react-native';
+import { Platform, View, ViewPropTypes } from 'react-native';
 import { PropTypes } from 'prop-types';
+import { WebView } from 'react-native-webview';
 
 class StripeCheckout extends Component {
   render() {
@@ -13,7 +14,6 @@ class StripeCheckout extends Component {
       imageUrl,
       storeName,
       prepopulatedEmail,
-      style,
       onPaymentSuccess,
       onClose
     } = this.props;
@@ -64,7 +64,7 @@ class StripeCheckout extends Component {
             };
             </script>`, baseUrl: ''}}
         onMessage={event => event.nativeEvent.data === 'WINDOW_CLOSED' ? onClose() : onPaymentSuccess(event.nativeEvent.data)}
-        style={[{ flex: 1 }, style]}
+        style={[{width: '80%', height: '90%'}]}
         scalesPageToFit={Platform.OS === 'android'}
       />
     );
@@ -82,7 +82,6 @@ StripeCheckout.propTypes = {
   onClose: PropTypes.func.isRequired,
   currency: PropTypes.string,
   prepopulatedEmail: PropTypes.string,
-  style: ViewPropTypes.object
 };
 
 StripeCheckout.defaultProps = {
